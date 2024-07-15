@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align:center;
+  color:#333;
+}
+
+.container {
+  width: 80%;
+  max-width:800px;
+  background-color: rgba(84, 141, 145, 0.5);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:0 auto;
+  color:black;
+}
+
+header {
+  text-align:center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(247,247,247,0.8);
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  margin:0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+header h2 {
+  margin:0;
+  font-size: 1.8em;
+  color: #666;
+  font-weight: normal;
+}
+
+main {
+  text-align: center;
+  padding: 20px;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: rgba(247,247,247,0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"], select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition:background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #00567F;
+}
+
+input[type="number"]:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  box-shadow: 0 0 10px rgba(0,0,0, 0.1), 0 0 10px rgba(0,0,0, 0.1) inset;
+}
+
+header {
+  background-image: linear-gradient(to bottom, rgba(247,247,247,0.8), rgba(247,247,247,0.8));
+}
+
+label {
+  background-image: linear-gradient(to bottom, rgba(247,247,247,0.8), rgba(247,247,247,0.8));
+}
+
+input[type="submit"] {
+  background-image: linear-gradient(to bottom, #007BFF, #00567F);
+}
+
