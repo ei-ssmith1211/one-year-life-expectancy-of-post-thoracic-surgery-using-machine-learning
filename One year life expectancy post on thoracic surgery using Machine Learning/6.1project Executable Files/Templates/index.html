@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <style>
+    body {
+       background: url("{{ url_for('static', filename='welcome.jpg') }}") no-repeat center center fixed;
+       background-size: cover;
+       color:black;
+    }
+
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px auto;
+      display: block;
+      width: 200px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .button:hover {
+      background-color: #00567F;
+    }
+  </style>
+
+</head>
+<body>
+    
+</body>
+
+    <div class="container">
+        <header>
+            <h1>LIFESPAN</h1>
+            <h2>Post Thoracic Surgery</h2>
+        </header>
+        <main>
+            <p style="color:white;">Lung cancer is the leading cause of cancer-related deaths in the world.<br> This app predicts post-operative life expectancy for patients undergoing thoracic surgery for lung cancer.</p>
+            <a href="{{ url_for('form') }}" class="button">View the App</a>
+        </main>
+    </div>
+</body>
+</html>

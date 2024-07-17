@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <style>
+    body {
+      background-image: url("{{url_for('static',filename='result.jpg')}}"); 
+      background-size: cover;
+      padding:20px;
+      color:black;
+    }
+    .button {
+      background-color: #000000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px auto;
+      display: block;
+      width: 200px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .button:hover {
+      background-color: #00567F;
+    }
+    body {
+       background: url("{{ url_for('static', filename='result.jpg') }}") no-repeat center center fixed;
+       background-size: cover;
+       color:black;
+    }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color:#747392;">Prediction Result</h1>
+        </header>
+        <main>
+            <h1> {{ prediction_text}}</h1>
+            <a href="{{url_for('form')}}" class="button">Back to form</a>
+        </main>
+    </div>
+</body>
+</html>

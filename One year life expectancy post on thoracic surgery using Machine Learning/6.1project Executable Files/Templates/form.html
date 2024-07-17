@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will the Patient Survive Post Thoracic Surgery?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            background-image: url("{{url_for('static',filename='form.jpg')}}");            
+            background-size: cover;
+            padding:17px;
+            color:black;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        header {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ddd;
+            border-radius: 10px 10px 0 0;
+        }
+        header h2 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #007BFF;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2em;
+            color: #666;
+            font-weight: normal;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        main {
+            padding: 20px;
+            width: 100%;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-container{
+           display:flex;
+           flex-wrap:wrap;
+           gap:20px;
+        }
+        .form-group {
+            flex: 1 1 45%; /* Flexbox layout for two-column structure */
+            margin-bottom: 20px;
+            margin-right:2%;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+        }
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-group input[type="number"]:focus,
+        .form-group select:focus {
+            border-color: #007BFF;
+        }
+        form input[type="submit"] {
+            width: 100%;
+            padding: 12px 24px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }body {
+           background: url("{{ url_for('static', filename='form.jpg') }}") no-repeat center center fixed;
+           background-size: cover;
+           color:black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2 style="color:brown;">Will the Patient Survive After Post Thoracic Surgery?</h2>
+            <p style="color:#164215">Find Out Whether Your Patient Is High Risk Before The Surgery</p>
+        </header>
+        <main>
+            <form action="{{url_for('predict')}}" method="post">
+                <div class="form-group">
+                    <label for="FVC">FVC:</label>
+                    <input type="number" step="0.01" id="FVC" name="FVC" required style="width:220px;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="FEV1">FEV1:</label>
+                    <input type="number" step="0.01" id="FEV1" name="FEV1" required style="width:215px;">
+                </div>
+                <div class="form-group">
+                    <label for="Performance">Performance:</label>
+                    <select id="Performance" name="Performance" required>
+                        <option value="1">Good (0)</option>
+                        <option value="2">Moderate (1)</option>
+                        <option value="3">Poor (2)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Pain">Pain:</label>
+                    <select id="Pain" name="Pain" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Haemoptysis">Haemoptysis:</label>
+                    <select id="Haemoptysis" name="Haemoptysis" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Dyspnoea">Dyspnoea:</label>
+                    <select id="Dyspnoea" name="Dyspnoea" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Cough">Cough:</label>
+                    <select id="Cough" name="Cough" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Weakness">Weakness:</label>
+                    <select id="Weakness" name="Weakness" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Tumor_Size">Tumor_Size:</label>
+                    <input type="number" id="Tumor_Size" name="Tumor_Size" required style="width:220px;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="Diabetes_Mellitus">Diabetes Mellitus:</label>
+                    <select id="Diabetes_Mellitus" name="Diabetes_Mellitus" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="MI_6mo">MI_6mo:</label>
+                    <select id="MI_6mo" name="MI_6mo" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="PAD">PAD:</label>
+                    <select id="PAD" name="PAD" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Smoking">Smoking:</label>
+                    <select id="Smoking" name="Smoking" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Asthma">Asthma:</label>
+                    <select id="Asthma" name="Asthma" required>
+                        <option value="1">Yes(1)</option>
+                        <option value="0">No(0)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Age">Age:</label>
+                    <input type="number" id="Age" name="Age" required>
+                </div>
+                <input type="submit" value="Predict">
+            </form>
+        </main>
+    </div>
+</body>
+</html>
